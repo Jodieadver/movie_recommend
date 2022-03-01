@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{% static "main/css/base.css" %}">
+
+    </head>
+
+  <body>
+    # header的相关配置    标题
+      <header>
+        <h1>The Abrakadabra Recommender</h1>
+         <h3>By Li Sijia</h3>
+      </header>
+
+#center相关配置     搜索栏
+<center><div class="wrap" >
+   <div>
+   <form class="search"   method="POST">
+       <input type="text" placeholder="Enter a full movie name">
+
+       <button class="searchButton" type="submit"  value="Submit">
+       </button>
+   </form>
+    <br>
+ </div></center>
+
+
+  </body>
+</html>
