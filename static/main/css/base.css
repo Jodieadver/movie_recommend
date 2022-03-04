@@ -1,20 +1,22 @@
 
 
+
+
+
 body{
   width: 100vw;
   height: 100vh;
   background-color:black;
   background-size: cover;
-
+  text-align: center;
+  /* align-items: center;
+  justify-content: center; */
 }
 header {
-
   font-family: 'Sucrose Bold Two';
 }
 
-
 h1{
-
   font-size: 3vw;
   line-height: .8;
   top: 20px;
@@ -32,13 +34,69 @@ h3{
   display: block;
 }
 
-.wrapper {
-  height: inherit;
-  width: inherit;
-  margin: 0 auto;
-  padding: 0;
-  display: -webkit-box;
+ .content{
+  /* 让left和top都是50%,
+  这在水平方向上让div的最左与屏幕的最左相距50%，垂直方向上一样，
+  所以再用transform向左（上）平移它自己宽度（高度）的50%，也就达到居中效果了 */
+  border-radius: 20px;
+	/* width: 300px; */
+	height: 200px;
+	position: absolute;
+  text-align: center;
+	left: 50%;
+	top: 50%;
+ transform: translate(-50%,-50%);
+}
+
+.search-bar{
+  border: solid white;
   display: flex;
-  flex-wrap: wrap;
+  border-radius: 800px;
+  height:50px;
+  padding: 3px;
+  position: relative;
+  /* 快乐，transition无效的原因是要加属性值，以及其初值*/
+  width: 50px;
+  transition: width 1s;
+  overflow: hidden;
 
 }
+.search-bar:hover{
+  width: 300px;
+background-color: white;
+outline:0;
+}
+
+.search-bar:hover .search-bar__input{
+  opacity: 1;
+  outline: 0; /* 点击时候网页框框会没有影响，好用 */
+
+}
+
+
+/* 用&和单独写.searc-bar__input是一样的 */
+  .search-bar__input {
+    flex-grow: 1;
+    font-size: 1.3rem;
+    padding:0 0.5em;
+    /* background: transparent; */
+    border:0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:53px;
+    opacity: 0;
+  }
+
+  .search-bar__submit{
+    font-size: 1.5rem;
+    cursor: pointer;  /* 在鼠标指针悬停在元素上时显示相应样式 */
+    border: 0;
+    height:50px;
+    width:50px;
+    border-radius: 50%; /* 变成圆形图标*/
+    margin-left: auto; /* 使得放大镜能跟随框框走的精髓*/
+    background-color: orange;
+
+  }

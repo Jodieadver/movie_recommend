@@ -2,21 +2,32 @@
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
 
-    <link rel="stylesheet" href="{% static "main/css/base.css" %}">
+<head>
+  <meta charset="utf-8">
 
-    </head>
+  <link rel="stylesheet" href="{% static "main/css/base.css" %}">
 
-  <body>
-     <!-- header的相关配置    标题 -->
-      <header>
-        <h1>The Abrakadabra Recommender</h1>
-         <h3>By Li Sijia</h3>
-      </header>
-<a href="{% url 'login' %}">login</a>
+</head>
 
+<body>
+  <!-- header的相关配置    标题 -->
+  <header>
+    <h1>The Abrakadabra Recommender</h1>
+    <h3>By Li Sijia</h3>
+  </header>
 
-  </body>
+  <!-- center的相关配置   搜索 -->
+  <div class="content">
+    <div class="search-bar">
+      <input type="text" class="search-bar__input" placeholder="enter the full movie name" aria-label="search">
+      <button class="search-bar__submit"><i class="fas fa-search" style="color:white"  aria-label="submit search"></i></button>
+    </div>
+  </div>
+
+  <!-- <a href="{% url 'login' %}">login</a> -->
+
+  <script src="https://kit.fontawesome.com/fa03c8eafc.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
