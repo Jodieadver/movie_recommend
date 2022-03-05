@@ -1,102 +1,146 @@
 
 
-
-
-
-body{
+body {
   width: 100vw;
   height: 100vh;
-  background-color:black;
+  background-color: black;
   background-size: cover;
   text-align: center;
   /* align-items: center;
   justify-content: center; */
 }
-header {
+
+/* header {
   font-family: 'Sucrose Bold Two';
+  text-align: center;
+} */
+
+h1 {
+  font-size: 3vw;
+  line-height: .8;  /* line-height是多行文本间距*/
+  color: white;
 }
 
-h1{
-  font-size: 3vw;
+h2{
+  font-size: 2.3vw;
   line-height: .8;
-  top: 20px;
-  text-align: center;
-  color:white;
-  left:800px;
+  color: white;
 }
-h3{
+
+h3 {
   color: white;
   font-size: 1vw;
   line-height: .8;
-  top: 200px;
-  text-align: center;
-  left:1000px;
-  display: block;
+  /* display: block; */
 }
 
- .content{
+.content {
+  /* background-color: white; */
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+}
   /* 让left和top都是50%,
   这在水平方向上让div的最左与屏幕的最左相距50%，垂直方向上一样，
-  所以再用transform向左（上）平移它自己宽度（高度）的50%，也就达到居中效果了 */
+  所以再用transform向左（上）平移它自己宽度（高度）的50%，也就达到居中效果了
   border-radius: 20px;
-	/* width: 300px; */
-	height: 200px;
-	position: absolute;
-  text-align: center;
-	left: 50%;
-	top: 50%;
- transform: translate(-50%,-50%);
-}
+  background-color: white;
+  width: 3vw;
+  height: 1vh;
+  /* position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+} */
 
-.search-bar{
+
+
+.search-bar {
   border: solid white;
-  display: flex;
-  border-radius: 800px;
-  height:50px;
+  display: flex; /* 就是将搜索icon和搜素框可以并列放，一排放*/
+  border-radius: 800px; /*很神奇，当输入500px以上就会变成椭圆的形状*/
+  height: 50px;
   padding: 3px;
   position: relative;
+  /* bottom: 40%; */
+  left:40%;
   /* 快乐，transition无效的原因是要加属性值，以及其初值*/
   width: 50px;
-  transition: width 1s;
-  overflow: hidden;
-
+  transition: width 1s cubic-bezier(0.18, 0.89, 0.75, 1.15);
+  overflow: hidden;  /* 将超过去的部分隐藏起来*/
 }
-.search-bar:hover{
+
+.search-bar:hover {
   width: 300px;
-background-color: white;
-outline:0;
+  background-color: white;
+  outline: 0;
 }
 
-.search-bar:hover .search-bar__input{
+.search-bar:hover .search-bar__input {
   opacity: 1;
   outline: 0; /* 点击时候网页框框会没有影响，好用 */
-
 }
 
+.search-bar__input {
+  flex-grow: 1;
+  font-size: 1.3rem;
+  padding: 0 0.5rem;
+  border: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 53px;
+  opacity: 0;
+}
 
-/* 用&和单独写.searc-bar__input是一样的 */
-  .search-bar__input {
-    flex-grow: 1;
-    font-size: 1.3rem;
-    padding:0 0.5em;
-    /* background: transparent; */
-    border:0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left:0;
-    right:53px;
-    opacity: 0;
-  }
+.search-bar__submit {
+  font-size: 1.5rem;
+  cursor: pointer;
+  /* 在鼠标指针悬停在元素上时显示相应样式 */
+  border: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  /* 变成圆形图标*/
+  margin-left: auto;
+  /* 使得放大镜能跟随框框走的精髓*/
+  background-color: orange;
+}
 
-  .search-bar__submit{
-    font-size: 1.5rem;
-    cursor: pointer;  /* 在鼠标指针悬停在元素上时显示相应样式 */
-    border: 0;
-    height:50px;
-    width:50px;
-    border-radius: 50%; /* 变成圆形图标*/
-    margin-left: auto; /* 使得放大镜能跟随框框走的精髓*/
-    background-color: orange;
+/* .popularmovie{
+  /* 相对于父类class来设置子类的位置，要让父类position为absolute，子类为relative */
+  /*border-radius: 20px;
+  width: 300px;
+  height: 200px;
+  position: relative;
+  text-align: center;
+  padding-top: 80px;*/
+  /* left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+} */
+main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  }
+.popularmovie{
+  width: 35vw;
+  padding-top: 5vh;
+  margin: 1rem;  /* 块于块之间的margin*/
+  background-color: white;
+  border-radius: 5px;
+  box-shadow:0 0.2px 4px 5px rgba(0,0,0.1);
+}
+
+.popularmovie img{
+  width: 100%;
+}
+.movie-info{
+  color:blue;
+}
+
+.overview{
+  color: blue;
+}
