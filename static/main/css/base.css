@@ -119,28 +119,80 @@ h3 {
   top: 50%;
   transform: translate(-50%, -50%);
 } */
-main{
+#main{
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* 在必要时可拆行拆列*/
   justify-content: center;
 }
 
 .popularmovie{
-  width: 35vw;
-  padding-top: 5vh;
+  width: 250px;
+  /* padding-top: 5vh; */
   margin: 1rem;  /* 块于块之间的margin*/
   background-color: white;
   border-radius: 5px;
-  box-shadow:0 0.2px 4px 5px rgba(0,0,0.1);
+  box-shadow:0 0.2px 4px 5px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
 }
+
 
 .popularmovie img{
   width: 100%;
 }
 .movie-info{
-  color:blue;
+  color:black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
 }
 
+.movie-info h4{
+  margin-top: 0;
+}
+
+.movie-info span{
+  background-color: #22254b;
+  padding: 0.1rem 0.2rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.movie-info span.green{
+  color: lightgreen;
+}
+
+.movie-info span.orange{
+  color: orange;
+}
+
+.movie-info span.red{
+  color: red;
+}
+
+
 .overview{
-  color: blue;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #DFBF9F	;
+  padding: 1rem;
+  max-height: 100%;
+  text-align: left;
+  /* 父类改成relative，子类改成absolute，
+  设置position信息,以及原position位置
+  left right bottom这种
+  设置transform变化的格式，就可以实现hover覆盖等操作 */
+  position: absolute;
+  transform: translateY(101%);
+  transition:transform 0.3s ease-in;
+}
+.popularmovie:hover .overview{
+  transform: translateY(0);
+}
+
+.overview h4{
+  margin: 0 90% 0 0;
 }
