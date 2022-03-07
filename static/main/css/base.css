@@ -1,198 +1,67 @@
 
+/* base.css是navbar，以及背景颜色和logo */
 
 body {
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color:  #24252A;
   background-size: cover;
   text-align: center;
   /* align-items: center;
   justify-content: center; */
 }
 
-/* header {
-  font-family: 'Sucrose Bold Two';
-  text-align: center;
+/* *{
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  background-color: #24252A;
 } */
 
-h1 {
-  font-size: 3vw;
-  line-height: .8;  /* line-height是多行文本间距*/
-  color: white;
+li, a, button{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
 }
 
-h2{
-  font-size: 2.3vw;
-  line-height: .8;
-  color: white;
-}
-
-h3 {
-  color: white;
-  font-size: 1vw;
-  line-height: .8;
-  /* display: block; */
-}
-
-.content {
-  /* background-color: white; */
-  padding-top: 10vh;
-  padding-bottom: 5vh;
-}
-  /* 让left和top都是50%,
-  这在水平方向上让div的最左与屏幕的最左相距50%，垂直方向上一样，
-  所以再用transform向左（上）平移它自己宽度（高度）的50%，也就达到居中效果了
-  border-radius: 20px;
-  background-color: white;
-  width: 3vw;
-  height: 1vh;
-  /* position: absolute;
-  left: 50%;
-  top: 30%;
-  transform: translate(-50%, -50%);
-} */
-
-
-
-.search-bar {
-  border: solid white;
-  display: flex; /* 就是将搜索icon和搜素框可以并列放，一排放*/
-  border-radius: 800px; /*很神奇，当输入500px以上就会变成椭圆的形状*/
-  height: 50px;
-  padding: 3px;
-  position: relative;
-  /* bottom: 40%; */
-  left:40%;
-  /* 快乐，transition无效的原因是要加属性值，以及其初值*/
-  width: 50px;
-  transition: width 1s cubic-bezier(0.18, 0.89, 0.75, 1.15);
-  overflow: hidden;  /* 将超过去的部分隐藏起来*/
-}
-
-.search-bar:hover {
-  width: 300px;
-  background-color: white;
-  outline: 0;
-}
-
-.search-bar:hover .search-bar__input {
-  opacity: 1;
-  outline: 0; /* 点击时候网页框框会没有影响，好用 */
-}
-
-.search-bar__input {
-  flex-grow: 1;
-  font-size: 1.3rem;
-  padding: 0 0.5rem;
-  border: 0;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 53px;
-  opacity: 0;
-}
-
-.search-bar__submit {
-  font-size: 1.5rem;
-  cursor: pointer;
-  /* 在鼠标指针悬停在元素上时显示相应样式 */
-  border: 0;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  /* 变成圆形图标*/
-  margin-left: auto;
-  /* 使得放大镜能跟随框框走的精髓*/
-  background-color: orange;
-}
-
-/* .popularmovie{
-  /* 相对于父类class来设置子类的位置，要让父类position为absolute，子类为relative */
-  /*border-radius: 20px;
-  width: 300px;
-  height: 200px;
-  position: relative;
-  text-align: center;
-  padding-top: 80px;*/
-  /* left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-} */
-#main{
+header{
   display: flex;
-  flex-wrap: wrap; /* 在必要时可拆行拆列*/
-  justify-content: center;
-}
-
-.popularmovie{
-  width: 250px;
-  /* padding-top: 5vh; */
-  margin: 1rem;  /* 块于块之间的margin*/
-  background-color: white;
-  border-radius: 5px;
-  box-shadow:0 0.2px 4px 5px rgba(0,0,0,0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-
-.popularmovie img{
-  width: 100%;
-}
-.movie-info{
-  color:black;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem 1rem;
-  letter-spacing: 0.5px;
+  align-items: center;
+  padding: 30px 10%;
 }
 
-.movie-info h4{
-  margin-top: 0;
+.logo{
+  cursor:pointer;
 }
 
-.movie-info span{
-  background-color: #22254b;
-  padding: 0.1rem 0.2rem;
-  border-radius: 3px;
-  font-weight: bold;
+.nav_links{
+  list-style: none;
 }
 
-.movie-info span.green{
-  color: lightgreen;
+.nav_links li{
+  display: inline-block;
+  padding: 0px 20px;
 }
 
-.movie-info span.orange{
-  color: orange;
+.nav_links li a {
+  transition: all 0.3s ease 0s;
 }
 
-.movie-info span.red{
-  color: red;
+.nav_links li a:hover {
+  color: #0088a9;
 }
 
-
-.overview{
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #DFBF9F	;
-  padding: 1rem;
-  max-height: 100%;
-  text-align: left;
-  /* 父类改成relative，子类改成absolute，
-  设置position信息,以及原position位置
-  left right bottom这种
-  设置transform变化的格式，就可以实现hover覆盖等操作 */
-  position: absolute;
-  transform: translateY(101%);
-  transition:transform 0.3s ease-in;
-}
-.popularmovie:hover .overview{
-  transform: translateY(0);
+button{
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
 
-.overview h4{
-  margin: 0 90% 0 0;
+button:hover{
+  background-color: rgba(0, 136, 169, 0.8);
 }

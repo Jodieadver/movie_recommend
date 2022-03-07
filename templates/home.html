@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -5,17 +6,21 @@
 
 <head>
   <meta charset="utf-8">
-
-  <link rel="stylesheet" href="{% static "main/css/base.css" %}">
-
+  {% block style %}
+  <link rel="stylesheet" href="{% static "main/css/home.css" %}">
+  <!-- 搜索框的表情 -->
+  {% endblock %}
 </head>
 
 <body>
+  {% block content %}
   <!-- header的相关配置    标题 -->
-  <header>
+  <!-- <header>
     <h1>The Abrakadabra Recommender</h1>
     <h3>By Li Sijia</h3>
-  </header>
+    bi bi-emoji-smile
+    fas fa-search
+  </header> -->
 
   <div class="content">
     <div class="search-bar">
@@ -25,11 +30,8 @@
   </div>
 
 
-  <!-- <div class="popularmovie">
-        <h2 style="color:white">Popular Movie Recently</h2>
-        <input type="text" value="gigi">
-      </div> -->
   <h2>Popular Movie Recently</h2>
+
   <main id="main">
     <div class="popularmovie">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyG28EYPyUVHXxNOvSMvSD2dp797Tk8HcwMg&usqp=CAU" alt="image">
@@ -38,70 +40,20 @@
         <span class="green">9.8</span>
       </div>
       <div class="overview">
-      <h4>overview</h4>
-      ddggfygfyytrtrhtrhrhyrh
-      udsgfyullllltyjyjyfjyjyrjyrj
-      gbfjdsgfydhdthdthjdthdthtd
-      dsgjrjrir
-      uidsh
-      kdshfidsyfhidsf
-    </div>
-  </div>
-
-    <div class="popularmovie">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyG28EYPyUVHXxNOvSMvSD2dp797Tk8HcwMg&usqp=CAU" alt="image">
-      <div class="movie-info">
-        <h4>Movie Title</h4>
-        <span class="green">9.8</span>
-      </div>
-      <div class="overview">
-        <h5>overview</h5>
-        ddggfygfyytrtrhtrhrhyrh
-        udsgfyullllltyjyjyfjyjyrjyrj
-        gbfjdsgfydhdthdthjdthdthtd
-        dsgf誒好也挺好tjrjrir
-        uidsh
-        kdshfidsyfhidsf
+        <h4>overview</h4>
       </div>
     </div>
-
-
-    <div class="popularmovie">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyG28EYPyUVHXxNOvSMvSD2dp797Tk8HcwMg&usqp=CAU" alt="image">
-      <div class="movie-info">
-        <h4>Movie Title</h4>
-        <span class="green">9.8</span>
-      </div>
-      <div class="overview">
-        ddggfygfyudsg
-        fyudstfg
-        gbfjdsgfy
-        dsgfuidshsy
-        kdshfidsyfhidsf
-      </div>
-    </div>
-
 
   </main>
 
-  <!-- center的相关配置   搜索 -->
-  <!-- <div class="content">
-    <div class="search-bar">
-      <input type="text" class="search-bar__input" placeholder="enter the full movie name" aria-label="search">
-      <button class="search-bar__submit"><i class="fas fa-search" style="color:white" aria-label="submit search"></i></button>
-    </div>
-  </div> -->
+  {% endblock %}
 
 
-  <!-- 热门电影 -->
-  <!-- <div class="popularmovie">
-    <h2 style="color:white">Popular Movie Recently</h2>
-    <input type="text" value="gigi">
-  </div> -->
-
-  <!-- <a href="{% url 'login' %}">login</a> -->
-  <script src="{% static "main/js/base.js" %}"></script>
+  {% block script %}
+  <script src="{% static "main/js/home.js" %}"></script>
   <script src="https://kit.fontawesome.com/fa03c8eafc.js" crossorigin="anonymous"></script>
+  {% endblock %}
+
 </body>
 
 </html>
