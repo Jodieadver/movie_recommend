@@ -34,7 +34,8 @@ function showMovies(data) {
       title,
       poster_path,
       vote_average,
-      overview
+      overview,
+      id
     } = movie;
     const movieEl = document.createElement('div'); //创建一个div,class为popularmovie
     movieEl.classList.add('popularmovie');
@@ -48,15 +49,87 @@ function showMovies(data) {
 
       <div class="overview">
       <h4>overview</h4>
-      ${overview}
+      ${overview}  <br/>
+      <button class="know-more" id="${id}">Know More</button>
       </div>
+
       `
 
     main.appendChild(movieEl);
+
+    document.getElementById(id).addEventListener('click',() =>{
+      todetail(id);
+
+      // openNav(movie);
+
+    })
+
+
   })
 }
 
 
+function todetail(id){
+  sessionStorage.setItem('movieId', id);
+  window.location = 'detail';
+  return false;
+}
+
+
+
+/*  点击know more，显示电影detail */
+const overlayContent = document.getElementById('overlay-content');
+function openNav(movie) {
+  let id = movie.id;
+  fetch(BASE_URL + '/movie/'+ id + '/videos?'+API_KEY).then(res => res.json()).then(videoData =>{
+    if(videoData){
+      document.getElementById("myNav").style.width = "100%";
+      if(videoData.results.length > 0){
+        var embed = [];
+        videoData.results.forEach(video =>{
+          let {
+            key,
+            name,
+            site,
+          } = video
+
+
+// 实验！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+          if(site == 'YouTube'){
+            embed.push(`
+
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+`)
+//实验！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+          }
+
+
+        })
+
+overlayContent.innerHTML = embed.join('');
+      }else{
+        overlayContent.innerHTML = `<h3 class="no-results">No Results Found</h3>`
+      }
+    }
+  })
+
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+
+
+
+
+
+
+// 调用api得到打分，根据打分不同显示不同颜色
 function getColor(vote) {
   if (vote >= 8) {
     return 'green'

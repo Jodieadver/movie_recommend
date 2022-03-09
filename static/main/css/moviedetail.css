@@ -1,0 +1,87 @@
+
+
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #24252A;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  /* align-items: center; */
+}
+
+.single-contatiner{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+}
+
+
+.single-poster{
+  padding-left: 5%;
+  width: 250px;
+  height:375px;
+}
+
+.single-poster img{
+  width: 250px;
+  height: 375px;
+}
+
+.single-info{
+  height: 375px;
+  width: 512px;
+}
+
+
+.single-info .div{
+  margin: 10px 10px;
+}
+
+.single-title{
+  font-size: 2vw;
+  line-height: .1;
+  padding: 20px;
+  padding-bottom: 30px;
+
+}
+
+.single-detail .set{
+  display: block;
+  margin-right: 10px;
+  padding: 5px;
+  text-align: left;
+
+}
+
+.single-detai label{
+  font-size:30px;
+  /* color: #ededed; */
+  /* display: block; */
+}
+
+.single-detail span{
+  font-size: 18px;
+}
+
+.single-description{
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-size: 15px;
+  text-align: left;
+}
+
+.tagline{
+padding: 7px;
+background-color: orange;
+border-radius: 500px;
+  width:auto;
+  height:auto;
+}
+
+.trailer{
+  color:white;
+}

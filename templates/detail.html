@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+
+  {% block style %}
+  <link rel="stylesheet" href="{% static "main/css/moviedetail.css" %}">
+  {% endblock %}
+
+</head>
+
+<body>
+
+  {% block content %}
+<div id="smain">
+
+
+  <div class="single-contatiner">
+    <div class="single-poster">
+      <img src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" alt="...">
+    </div>
+
+    <div class="single-info">
+
+      <div class="single-title">
+        Raya and the last dragon
+      </div>
+      <div class="single-detail">
+        <div class="set">
+          <label>Release Date</label>
+          <span>March 3 2021</span>
+        </div>
+        <div class="set">
+          <label>Running Time</label>
+          <span>1h40min</span>
+        </div>
+        <div class="set">
+          <label>Genre</label>
+          <span>Fantasy / Adventure / Family</span>
+        </div>
+      </div>
+
+      <div class="single-description">
+        long time ago...
+      </div>
+
+      <div class="tagline">
+        To be or not to be, that's the question.
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+  <div id="trailer" class="trailer">
+  </div>
+
+  {% endblock %}
+
+  {% block script %}
+  <script src="{% static "main/js/detail.js" %}"></script>
+<script>
+  // getMovieVideo();
+</script>
+  {% endblock %}
+
+</body>
+
+</html>

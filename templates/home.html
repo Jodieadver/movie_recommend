@@ -8,7 +8,8 @@
   <meta charset="utf-8">
   {% block style %}
   <link rel="stylesheet" href="{% static "main/css/home.css" %}">
-  <!-- 搜索框的表情 -->
+  <link rel="stylesheet" href="{% static "main/css/detail.css" %}">
+
   {% endblock %}
 </head>
 
@@ -22,6 +23,9 @@
     fas fa-search
   </header> -->
 
+
+
+<!-- 搜索框 -->
   <div class="content">
     <div class="search-bar">
 <form id="form">
@@ -32,8 +36,27 @@
   </div>
 
 
+<!-- 点击know more的电影detail -->
+<div id="myNav" class="overlay">
+
+<!-- Button to close the overlay navigation -->
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+<!-- Overlay content -->
+<div class="overlay-content" id="overlay-content">
+
+</div>
+
+</div>
 
 
+
+
+
+
+
+
+<!-- 主页搜索的titlename和api调用（图片显示和简介） -->
   <h2 id="titlename">Popular Movie Recently</h2>
 
   <main id="main">
