@@ -5,8 +5,16 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' +
   API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+const searchURL = BASE_URL + '/search/movie?' + API_KEY;
+
+
+
 
 const main = document.getElementById('main');
+// 添加搜索功能（两行）
+const form = document.getElementById('form');
+const search = document.getElementById('search');
+
 
 getMovies(API_URL);
 //用这个api得到一些数据，从console里面可以看到我们只需要results那部分
@@ -58,3 +66,19 @@ function getColor(vote) {
     return 'red'
   }
 }
+
+
+// 也可以用jquery写，form是id名字，$('form').submit(function{...})  我觉得是，有待考证
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const searchTerm = search.value;
+
+  if(searchTerm){
+    document.getElementById('titlename').innerHTML="Selected Movie";
+    getMovies(searchURL + '&query=' + searchTerm);
+  }else{
+    document.getElementById('titlename').innerHTML="Popular Movie Recently";
+    getMovies(API_URL);
+  }
+})

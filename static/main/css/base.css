@@ -18,6 +18,7 @@ body {
   background-color: #24252A;
 } */
 
+
 li, a, button{
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -35,6 +36,9 @@ header{
 
 .logo{
   cursor:pointer;
+  font-size: 3vw;
+  line-height: .8;  /* line-height是多行文本间距*/
+  color: white;
 }
 
 .nav_links{
