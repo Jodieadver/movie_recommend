@@ -9,7 +9,7 @@ def login(request):
     return render(request,'login.html')
 
 def test(request):
-    return render(request,'detail.html')
+    return render(request,'home.html')
 
 def signup(request):
     return render(request,'signup.html')

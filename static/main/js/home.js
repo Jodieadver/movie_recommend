@@ -1,5 +1,6 @@
 // TMDB api实现home.html的popularmovie
 
+var id = null;
 const API_KEY = 'api_key=7136a65f97470f2b86c46406fe9bb192';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' +
@@ -60,8 +61,6 @@ function showMovies(data) {
     document.getElementById(id).addEventListener('click',() =>{
       todetail(id);
 
-      // openNav(movie);
-
     })
 
 
@@ -74,58 +73,6 @@ function todetail(id){
   window.location = 'detail';
   return false;
 }
-
-
-
-/*  点击know more，显示电影detail */
-const overlayContent = document.getElementById('overlay-content');
-function openNav(movie) {
-  let id = movie.id;
-  fetch(BASE_URL + '/movie/'+ id + '/videos?'+API_KEY).then(res => res.json()).then(videoData =>{
-    if(videoData){
-      document.getElementById("myNav").style.width = "100%";
-      if(videoData.results.length > 0){
-        var embed = [];
-        videoData.results.forEach(video =>{
-          let {
-            key,
-            name,
-            site,
-          } = video
-
-
-// 实验！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-          if(site == 'YouTube'){
-            embed.push(`
-
-
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-`)
-//实验！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-          }
-
-
-        })
-
-overlayContent.innerHTML = embed.join('');
-      }else{
-        overlayContent.innerHTML = `<h3 class="no-results">No Results Found</h3>`
-      }
-    }
-  })
-
-}
-
-/* Close when someone clicks on the "x" symbol inside the overlay */
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-
-
-
-
 
 
 

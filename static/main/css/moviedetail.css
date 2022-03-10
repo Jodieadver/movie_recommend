@@ -17,6 +17,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 30px 10%;
+
 }
 
 
@@ -72,7 +73,13 @@ body {
   padding-bottom: 70px;
   font-size: 15px;
   text-align: left;
+
 }
+
+.sdtx{
+  width:auto;
+}
+
 
 .tagline{
 padding: 7px;
@@ -80,8 +87,19 @@ background-color: orange;
 border-radius: 500px;
   width:auto;
   height:auto;
+
+
 }
 
+.score{
+
+  padding: 70px;
+  width:auto;
+  height:auto;
+
+}
+
+
 .trailer{
-  color:white;
+  padding-top: 30px;
 }

@@ -15,57 +15,78 @@
 <body>
 
   {% block content %}
-<div id="smain">
+  <div id="main">
+
+    <div class="single-contatiner">
+      <div class="single-poster">
+        <img src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" alt="...">
+      </div>
+
+      <div class="single-info">
+
+        <div class="single-title">
+          Raya and the last dragon
+        </div>
+        <div class="single-detail">
+          <div class="set">
+            <label>Release Date</label>
+            <span>March 3 2021</span>
+          </div>
+          <div class="set">
+            <label>Running Time</label>
+            <span>1h40min</span>
+          </div>
+          <div class="set">
+            <label>Genre</label>
+            <span>Fantasy / Adventure / Family</span>
+          </div>
+        </div>
+
+        <div class="single-description">
+          <div class="sdtx">
+            long time ago...
+          </div>
+        </div>
+
+        <div class="tagline">
+          To be or not to be, that's the question.
+        </div>
+
+      </div>
 
 
-  <div class="single-contatiner">
-    <div class="single-poster">
-      <img src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" alt="...">
+
+
     </div>
 
-    <div class="single-info">
-
-      <div class="single-title">
-        Raya and the last dragon
-      </div>
-      <div class="single-detail">
-        <div class="set">
-          <label>Release Date</label>
-          <span>March 3 2021</span>
-        </div>
-        <div class="set">
-          <label>Running Time</label>
-          <span>1h40min</span>
-        </div>
-        <div class="set">
-          <label>Genre</label>
-          <span>Fantasy / Adventure / Family</span>
-        </div>
-      </div>
-
-      <div class="single-description">
-        long time ago...
-      </div>
-
-      <div class="tagline">
-        To be or not to be, that's the question.
-      </div>
+    <div class="score">
+      <input type="text" name="" value="">
+      <button type="button" name="button">submit</button>
     </div>
+
+
 
   </div>
 
-</div>
 
-  <div id="trailer" class="trailer">
+
+  <div id="tcontainer">
+    <div id="trailer" class="trailer">
+      <iframe padding-top="100px" width="560" height="315" src="https://www.youtube.com/embed/${video_key}" title="${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
   </div>
+
+
+
 
   {% endblock %}
 
   {% block script %}
   <script src="{% static "main/js/detail.js" %}"></script>
-<script>
-  // getMovieVideo();
-</script>
+  <script>
+    // getMovieVideo();
+  </script>
   {% endblock %}
 
 </body>
