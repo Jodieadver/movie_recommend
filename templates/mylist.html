@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "main/css/mylist.css" %}">
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div id="myList">
+
+<div class="container">
+  <div class="title">
+    <h1>My Current Brain</h1>
+  </div>
+</div>
+
+<div  class="content">
+  <div class="one-poster">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyG28EYPyUVHXxNOvSMvSD2dp797Tk8HcwMg&usqp=CAU" alt="image">
+  </div>
+</div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+{% block script %}
+<script src="{% static "main/js/mylist.js" %}"></script>
+
+{% endblock %}

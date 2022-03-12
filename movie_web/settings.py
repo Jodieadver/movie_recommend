@@ -74,17 +74,26 @@ WSGI_APPLICATION = 'movie_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'movie_data', #连接的数据库名称
-        'HOST': '127.0.0.1',
-        'PORT': 3306, #mysql端口
-        'USER': 'root',
-        'PASSWORD': '123456',
-# 连接数据库中出现的问题以及解决办法https://blog.csdn.net/tianxinyiru/article/details/107670638
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'movie_data', #连接的数据库名称
+#         'HOST': '127.0.0.1',
+#         'PORT': 3306, #mysql端口
+#         'USER': 'root',
+#         'PASSWORD': '123456',
+# # 连接数据库中出现的问题以及解决办法https://blog.csdn.net/tianxinyiru/article/details/107670638
+#     }
+# }
 
 
 # Password validation

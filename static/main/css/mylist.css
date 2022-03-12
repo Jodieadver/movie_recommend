@@ -1,0 +1,60 @@
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #24252A;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  /* align-items: center; */
+}
+
+h1 {
+  font-size: 2vw;
+  line-height: .8;  /* line-height是多行文本间距*/
+  color: white;
+}
+
+.container{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px  10%;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.title{
+  width:100%;
+  height: 50px;
+}
+
+
+.content{
+  display: flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  /* align-items: center; */
+  height: auto;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.one-poster{
+  width: 125px;
+  height: 187.5px;
+  /* margin:  15px;  /* 块于块之间的margin*/
+  margin-left: 15px;
+  margin-right: 15px; 
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow:0 0.2px 4px 5px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.one-poster img{
+  width: 100%;
+
+}
