@@ -1,14 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "main/css/login.css" %}">
+
+{% endblock %}
+
 
 
 {% block content %}
 
-<h1>Log in</h1>
-<br><br>
 
-<form  action="index.html" method="post">
-  <input type="submit" name="" value="Submit">
-</form>
+<div class="form-part">
+  <form class="box" method="post">
+    {% csrf_token %}
+         <h1>Login Abra</h1>
+         <input type="text" name="username" placeholder="Username">
+         <input type="password" name="password" placeholder="Password">
+         <input type="submit" name="" value="Login">
+     </form>
+</div>
 
-<br><br>
+
 {% endblock %}
+
+{% block script%}
+
+{%endblock%}

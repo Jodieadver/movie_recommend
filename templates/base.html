@@ -5,6 +5,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="{% static "main/css/base.css" %}">
+  <link rel="stylesheet" href="{% static "main/css/alert.css" %}">
   <!-- navbar.html  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,10 +17,28 @@
 <body>
   {% include 'navbar.html' %}
 
+  <div class="alert-box">
+
+    {% if messages %}
+    {% for message in messages %}
+
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong>Holy abrahadabra!!</strong> {{message}}
+
+    </div>
+
+
+
+    {% endfor %}
+    {% endif %}
+
+  </div>
   {% block content %}{% endblock %}
 
   {% block script %} {% endblock %}
 
 
 </body>
+
 </html>
