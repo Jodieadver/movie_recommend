@@ -20,9 +20,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.test),
-    # path('login', views.login, name='login'),
     path('home',views.home,name='home'),  # name就是在网页href引用的时候用的
-    path('signup',views.signup,name='signup'),
     path('detail', views.detail, name='detail'),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),

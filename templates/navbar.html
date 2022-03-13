@@ -6,10 +6,13 @@
   <!-- <img class="logo" src="" alt="Abracadabra"> -->
   <nav>
     <ul class="nav_links">
-      <li><a href="home">home</a></li>
-      <li><a href="members/mylist">my list</a></li>
-      <li><a href="members/login">log in</a></li>
-      <li><a href="signup">sign up</a></li>
+      <!-- 是按照app的urls找的 -->
+      <!-- 此处抖机灵，当进入members时再返回home，就只会再members文件夹中找urls，
+      于是给home加了个/，表示也要从project层面来找home这个url -->
+      <li><a href="/home">home</a></li>
+      <li><a href="/members/mylist">my list</a></li>
+      <li><a href="/members/login_user">log in</a></li>
+      <li><a href="/members/signup">sign up</a></li>
     </ul>
   </nav>
 </header>
