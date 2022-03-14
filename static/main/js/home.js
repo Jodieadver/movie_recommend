@@ -70,7 +70,7 @@ function showMovies(data) {
 
 function todetail(id){
   sessionStorage.setItem('movieId', id);
-  window.location = 'detail';
+  window.location = 'rates/detail';
   return false;
 }
 

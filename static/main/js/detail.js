@@ -94,16 +94,26 @@ function showDetail(data) {
   main.appendChild(movieEl);
 
 // 修改评分星星的html
-const movieScore = document.createElement('div'); //创建一个div,class为popularmovie
-movieScore.classList.add('score');
-movieScore.innerHTML = `
-
-<input type="text" name="" value="">
-<button type="button" name="button">submit</button>
-
-`
-
-main.appendChild(movieScore);
+// const movieScore = document.createElement('div'); //创建一个div,class为popularmovie
+// movieScore.classList.add('score');
+//
+// movieScore.innerHTML = `
+//
+//   <!-- <input type="text" name="score" placeholder="what can it get?"> -->
+//   <form method="post">
+//     {% csrf_token %}
+//       {{form.rating}}
+//     </form>
+//     <!-- <input type="text" name="score" placeholder="what can it get?"> -->
+//     <button class="isubmit" type="button" name="button">submit</button>
+//
+//
+//
+// <!-- <input type="text" name="" value="">
+// <button type="button" name="button">submit</button> -->
+//
+// `
+// main.appendChild(movieScore);
 
 
 

@@ -7,7 +7,3 @@ def home(request):
 
 def test(request):
     return render(request,'home.html')
-
-
-def detail(request):
-    return render(request,'detail.html')

@@ -8,6 +8,7 @@
 
   {% block style %}
   <link rel="stylesheet" href="{% static "main/css/moviedetail.css" %}">
+  <link rel="stylesheet" href="{% static "main/css/signup.css" %}">
   {% endblock %}
 
 </head>
@@ -54,19 +55,22 @@
 
       </div>
 
-
-
-
     </div>
 
-    <div class="score">
-      <input type="text" name="" value="">
-      <button type="button" name="button">submit</button>
-    </div>
+</div>
 
+<div class="score">
+  <form method="post">
+    {% csrf_token %}
+      {{form.rate}}
 
+    <!-- <input type="text" name="score" placeholder="what can it get?"> class="isubmit"-->
+  <button type="button" name="button">submit</button>
+  <button type="button" name="button">console.log{{movie_id}}</button>
+  </form>
+</div>
 
-  </div>
+  <!-- <button class="isubmit" type="button" name="button">submit</button> -->
 
 
 
@@ -85,6 +89,7 @@
   {% block script %}
   <script src="{% static "main/js/detail.js" %}"></script>
   <script>
+
     // getMovieVideo();
   </script>
   {% endblock %}

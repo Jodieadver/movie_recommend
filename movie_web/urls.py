@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.test),
     path('home',views.home,name='home'),  # name就是在网页href引用的时候用的
-    path('detail', views.detail, name='detail'),
+    path('rates/', include('rates.urls')),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
 ]

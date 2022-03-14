@@ -49,6 +49,10 @@ def signup(request):
     return render(request, 'signup.html',{'form':form,})
 
 
+
+
+
+
 def mylist(request):
     ratess = serializers.serialize("json", Rating.objects.all())
     rates = json.loads(ratess)
