@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 from .models import Rating
+from .forms import SignupForm
 
 from django.core import serializers
 import json
@@ -25,8 +27,26 @@ def login_user(request):
         return render(request, 'login_user.html')
 
 
+
+def logout_user(request):
+    logout(request)
+    messages.success(request, ("You were logged out, Come back soooon!"))
+    return redirect('home')
+
 def signup(request):
-    return render(request, 'signup.html')
+    if request.method == "POST":
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username = username, password=password)
+            login(request,user)
+            messages.success(request,("Registration seccuss!"))
+            return redirect('home')
+    else:
+        form = SignupForm()
+    return render(request, 'signup.html',{'form':form,})
 
 
 def mylist(request):

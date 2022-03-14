@@ -1,6 +1,3 @@
-
-
-
 <header>
   <h1 class="logo">Abrakadabra</h1>
   <!-- <img class="logo" src="" alt="Abracadabra"> -->
@@ -10,9 +7,19 @@
       <!-- 此处抖机灵，当进入members时再返回home，就只会再members文件夹中找urls，
       于是给home加了个/，表示也要从project层面来找home这个url -->
       <li><a href="/home">home</a></li>
+
+      {%if user.is_authenticated%}
       <li><a href="/members/mylist">my list</a></li>
+      {%else%}
+      {%endif%}
+
+      {% if user.is_authenticated %}
+      <li><a href="/members/logout_user">log out</a></li>
+      {% else %}
       <li><a href="/members/login_user">log in</a></li>
       <li><a href="/members/signup">sign up</a></li>
+      {%endif%}
+
     </ul>
   </nav>
 </header>

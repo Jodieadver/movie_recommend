@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "main/css/alert.css" %}">
+<link rel="stylesheet" href="{% static "main/css/signup.css" %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="alert-box">
+  {%if form.errors%}
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    There was an error with your form.
+  </div>
+  {% endif %}
+</div>
+
+<div class="form-part">
+  <form class="box" action="{% url 'signup'%}" method="post">
+    {% csrf_token %}
+    <h1>Welcome to Abrakadabra SignUp</h1>
+    <!-- {{form.as_p}}这个会出现官方自带的提示语，会打乱我的css格式，所以自行loop一下 -->
+
+   {{form.username}}
+
+   {{form.email}}
+
+   {{form.password1}}
+
+   {{form.password2}}
+
+
+    <!--<input type="text" name="username" placeholder="Username">
+         <input type="password" name="password" placeholder="Password"> -->
+    <input  class="isubmit" type="submit" value="Sign up">
+  </form>
+</div>
+
+
+{% endblock %}
+
+{% block script%}
+
+{%endblock%}
