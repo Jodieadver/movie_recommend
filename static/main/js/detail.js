@@ -25,7 +25,7 @@ const main = document.getElementById('main');
 const tcontainer = document.getElementById('tcontainer');
 
 function showDetail(data) {
-
+    console.log(data.id);
 
   main.innerHTML = '';
 
@@ -90,6 +90,9 @@ function showDetail(data) {
 
 
       </div>
+
+
+
  `
   main.appendChild(movieEl);
 

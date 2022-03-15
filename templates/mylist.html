@@ -10,17 +10,17 @@
 {% block content %}
 
 <div id="myList">
-<div class="container">
-  <div class="title">
-    <h1>{{user.username}}'s Current Brain</h1>
+  <div class="container">
+    <div class="title">
+      <h1>{{user.username}}'s Current Brain</h1>
+    </div>
   </div>
-</div>
 
-<div  id="picContent" class="content">
-  <div class="one-poster">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyG28EYPyUVHXxNOvSMvSD2dp797Tk8HcwMg&usqp=CAU" alt="image">
+  <div id="picContent" class="content">
+    <div class="one-poster">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyG28EYPyUVHXxNOvSMvSD2dp797Tk8HcwMg&usqp=CAU" alt="image">
+    </div>
   </div>
-</div>
 
 </div>
 
@@ -31,21 +31,35 @@
 
 {% block script %}
 <script type="text/javascript">
+  // 显示当前userId
+  console.log({{user.id}})
+  var all_rates = JSON.parse('{{all_rates|safe}}')
+  var current_user = {{user.id}}
 
-  var all_rates =JSON.parse('{{all_rates|safe}}')
   ids = []
-  for(var i=0; i<all_rates.length; i++){
-    id = all_rates[i].fields.movie_id
-    ids.push(id)
+  for (var i = 0; i < all_rates.length; i++) {
+    var data_owner = all_rates[i].fields.user
+    if (current_user == data_owner) {
+      id = all_rates[i].fields.movie_id
+      ids.push(id)
+    }
   }
+
   console.log(ids)
+//不分用户的写法
+  // ids = []
+  // for(var i=0; i<all_rates.length; i++){
+  //   id = all_rates[i].fields.movie_id
+  //   ids.push(id)
+  // }
+  // console.log(ids)
   const API_KEY = 'api_key=7136a65f97470f2b86c46406fe9bb192';
   const BASE_URL = 'https://api.themoviedb.org/3';
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   const picContent = document.getElementById('picContent');
   picContent.innerHTML = '';
 
-  for(var i in ids){
+  for (var i in ids) {
     var MOVIE_URL = BASE_URL + '/movie/' + ids[i] + '?' + API_KEY + '&append_to_response=videos';
     getPic(MOVIE_URL);
   }
@@ -59,9 +73,9 @@
   }
 
 
-  function showPic(data){
-      const title = data.title;
-      const poster_path = data.poster_path;
+  function showPic(data) {
+    const title = data.title;
+    const poster_path = data.poster_path;
     const movieEl = document.createElement('div'); //创建一个div,class为popularmovie
     movieEl.classList.add('one-poster');
     movieEl.innerHTML = `
@@ -69,7 +83,7 @@
   `
     picContent.appendChild(movieEl);
   }
-//}
+  //}
 
   // var ids = [];
   // for(let id of all_rates){

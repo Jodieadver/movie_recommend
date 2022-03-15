@@ -24,6 +24,8 @@ function getMovies(url) {
   fetch(url).then(res => res.json()).then(data => {
     showMovies(data.results);
   })
+
+
 }
 
 function showMovies(data) {

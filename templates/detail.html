@@ -9,6 +9,7 @@
   {% block style %}
   <link rel="stylesheet" href="{% static "main/css/moviedetail.css" %}">
   <link rel="stylesheet" href="{% static "main/css/signup.css" %}">
+  <link rel="stylesheet" href="{% static "main/css/alert.css" %}">
   {% endblock %}
 
 </head>
@@ -59,6 +60,7 @@
 
 </div>
 
+{% if user.is_authenticated %}
 <div class="score">
   <form method="post">
     {% csrf_token %}
@@ -66,10 +68,14 @@
 
     <!-- <input type="text" name="score" placeholder="what can it get?"> class="isubmit"-->
   <button type="button" name="button">submit</button>
-  <button type="button" name="button">console.log{{movie_id}}</button>
   </form>
 </div>
-
+{%else%}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  Sorry, you can only rate films when authenticated. (That's not what I said.)
+</div>
+{% endif %}
   <!-- <button class="isubmit" type="button" name="button">submit</button> -->
 
 

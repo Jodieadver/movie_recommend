@@ -52,7 +52,8 @@ def signup(request):
 
 
 
-
+# 对于分用户显示list，可以从两个方面入手，传数据的时候filter，如果用户authenticated，筛选符合要求的用户
+# 还有一个就是在js中筛选，那时候可以筛到用户信息
 def mylist(request):
     ratess = serializers.serialize("json", Rating.objects.all())
     rates = json.loads(ratess)
