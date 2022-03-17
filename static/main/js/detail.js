@@ -1,12 +1,14 @@
 const API_KEY = 'api_key=7136a65f97470f2b86c46406fe9bb192';
 const BASE_URL = 'https://api.themoviedb.org/3';
 var id = sessionStorage.getItem('movieId');
+
 // https://api.themoviedb.org/3/movie/458576?api_key=7136a65f97470f2b86c46406fe9bb192
 const MOVIE_URL = BASE_URL + '/movie/' + id + '?' + API_KEY + '&append_to_response=videos';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
-
+var userid = sessionStorage.getItem('userid');
+console.log(userid)
 
 
 getDetail(MOVIE_URL);
@@ -60,7 +62,9 @@ function showDetail(data) {
     <div class="single-info">
 
        <div class="single-title">
-         ${title}
+
+         ${title}    <span>(${data.id})</span>
+
        </div>
        <div class="single-detail">
          <div class="set">
@@ -99,23 +103,33 @@ function showDetail(data) {
 // 修改评分星星的html
 // const movieScore = document.createElement('div'); //创建一个div,class为popularmovie
 // movieScore.classList.add('score');
-//
+// if(userid!=null){
 // movieScore.innerHTML = `
 //
 //   <!-- <input type="text" name="score" placeholder="what can it get?"> -->
 //   <form method="post">
 //     {% csrf_token %}
+//     <input type="text" name="dddd" value="ddddd">
 //       {{form.rating}}
 //     </form>
 //     <!-- <input type="text" name="score" placeholder="what can it get?"> -->
 //     <button class="isubmit" type="button" name="button">submit</button>
+//     `
 //
-//
+// }else{
+//   movieScore.innerHTML = `
+//   <div class="alert">
+//     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+//     Sorry, you can only rate films when authenticated. (That's not what I said.)
+//   </div>
+//   `
+// }
+//  main.appendChild(movieScore);
 //
 // <!-- <input type="text" name="" value="">
 // <button type="button" name="button">submit</button> -->
 //
-// `
+
 // main.appendChild(movieScore);
 
 
@@ -150,11 +164,30 @@ function showDetail(data) {
 
 `
 
-
-
-
 }
 
+
+
+
+//
+// scoreform.addEventListener('submit', (e) => {
+//   e.preventDefault();
+//
+//   $.ajax({
+//     type: 'POST',
+//     url: '/rates/detail',
+//     data:{
+//       movie_id : 1,
+//       user : 1,
+//       csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+//
+//     },
+//     success: function(){
+//       alert("yeah")
+//     }
+//   });
+//
+// })
 
 
 

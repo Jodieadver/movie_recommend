@@ -7,6 +7,8 @@
   <meta charset="utf-8">
 
   {% block style %}
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+  </script>
   <link rel="stylesheet" href="{% static "main/css/moviedetail.css" %}">
   <link rel="stylesheet" href="{% static "main/css/signup.css" %}">
   <link rel="stylesheet" href="{% static "main/css/alert.css" %}">
@@ -62,12 +64,12 @@
 
 {% if user.is_authenticated %}
 <div class="score">
-  <form method="post">
+  <form method='post'>
     {% csrf_token %}
-      {{form.rate}}
+      {{form}}
 
-    <!-- <input type="text" name="score" placeholder="what can it get?"> class="isubmit"-->
-  <button type="button" name="button">submit</button>
+   <!-- <input type="text" name="score" placeholder="what can it get?"> class="isubmit" -->
+  <button type="submit" name="button">submit</button>
   </form>
 </div>
 {%else%}
@@ -93,11 +95,30 @@
   {% endblock %}
 
   {% block script %}
-  <script src="{% static "main/js/detail.js" %}"></script>
+    <script src="{% static "main/js/detail.js" %}"></script>
   <script>
+//得到movieid，不一定会用
+var movieid = sessionStorage.getItem('movieId')
 
-    // getMovieVideo();
+var userid = {{user.id}}
+var user = {{user}}
+console.log(movieid)
+console.log(user)
+// sessionStorage.setItem('userid',{{user.id}})
+
+// 在这里写ajax提交表单的流程
+
+
+
+
+
+
+
+
+
   </script>
+
+
   {% endblock %}
 
 </body>

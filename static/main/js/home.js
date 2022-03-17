@@ -20,12 +20,9 @@ const search = document.getElementById('search');
 getMovies(API_URL);
 //用这个api得到一些数据，从console里面可以看到我们只需要results那部分
 function getMovies(url) {
-
   fetch(url).then(res => res.json()).then(data => {
     showMovies(data.results);
   })
-
-
 }
 
 function showMovies(data) {
@@ -71,6 +68,7 @@ function showMovies(data) {
 
 
 function todetail(id){
+
   sessionStorage.setItem('movieId', id);
   window.location = 'rates/detail';
   return false;

@@ -3,7 +3,9 @@ from . import views
 
 urlpatterns = [
 
-    path('detail', views.detail, name='detail'),
+    # path('testdetail', views.RateTest, name='testdetail'),
+    path('detail', views.Rate, name='detail'),
+    # path(r'^/detail/submitted/$', views.submitScore,name='submitScore')
 
 
 ]
